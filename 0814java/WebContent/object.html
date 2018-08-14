@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+</body>
+<script>
+//이름과 나이를 저장할 수 있는 속성을 만들고 이름과 나이를 하나의 문자열로 만들어서 리턴하는 함수를 생성 
+	//속성 이름에는 따옴표 생략 가능 
+	var person = {
+			name:"noname",
+			age:0,
+			toString : function(){
+				//객체 안에 있는 함수에서 객체 안에 있는 다른 속성을 호출할 때는 this.을 붙여야 합니다.
+				return this.name + ":" + this.age
+			}
+}
+	person.name = "또르륵"
+	person["age"] = 20
+	document.writeln(person.toString() + "<br />")
+	
+	//자바스크립트 객체는 존재하지 않는 속성에 값을 대입하면 대입할 때 속성을 만들어서 값을 저장합니다.
+	// map에 특성을 갖는다 없으면 그때그때 마다 만들어서 쓴다.
+	person.phone = "000000000"
+	alert(person.phone)
+	
+	//person 모든 속성 확인 
+	for(t in person){
+		document.writeln(t)
+	}
+	
+	//이름과 나이를 갖는 생성자
+	function Person(name, age) {
+	this.name = name
+	this.age = age
+	this.toString = function(){
+		return name + ":" + age
+	}
+}
+
+var obj1 = new Person("donggil",10)
+var obj2 = new Person("나다",20)
+
+alert(obj1.toString())
+alert(obj2.toString())
+
+
+	var str = "hello world"
+	//문자열의 각 문자를 1개씩 출력 // charAt을 할때는 반드시 while을써
+	var i = 0
+	while(i<str.length){
+	alert(str.charAt(i))
+	i = i+1
+	}
+	
+	//문자의 존재여부 - indexOf, lastIndedxOf
+	alert(str.indexOf("o"))
+	alert(str.lastIndexOf("o"))
+	alert(str.indexOf("k")) // k가 없다 없으면 -1을 리턴해준다.
+	
+	//str을 공백을 기준으로 분리해서 출력 : hello world 출력
+	var ab = str.split("")
+	for(i in ab){
+		alert(ab(i))
+	}
+	
+	
+	//앞의 3글자만 가져와서 출력
+	alert(str.substring(0,3)) //1,3이면 el만 온다 
+	//trim, toUpperCase, toLowerCase 기능 // 조회 같은 거를 할때는 기억해야 한다.  
+	
+	
+	
+</script>
+</html>
